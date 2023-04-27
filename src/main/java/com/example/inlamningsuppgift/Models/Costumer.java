@@ -19,4 +19,9 @@ public class Costumer {
     protected long id;
     protected String name;
     protected long personnummer;
+
+    public Costumer(String name, long personnummer) {
+        this.name = name;
+        this.personnummer = personnummer;
+    }
 }

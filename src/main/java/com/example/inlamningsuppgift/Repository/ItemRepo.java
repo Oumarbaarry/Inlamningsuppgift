@@ -1,9 +1,8 @@
 package com.example.inlamningsuppgift.Repository;
+
+import com.example.inlamningsuppgift.Models.Costumer;
 import com.example.inlamningsuppgift.Models.Items;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ItemRepo {
-
+public interface ItemRepo extends JpaRepository<Items,Long> {
 }

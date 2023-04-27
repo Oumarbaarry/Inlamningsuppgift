@@ -20,5 +20,9 @@ public class Items {
     protected String name;
     protected long pris;
 
+    public Items(String name, long pris) {
+        this.name = name;
+        this.pris = pris;
+    }
 }
 

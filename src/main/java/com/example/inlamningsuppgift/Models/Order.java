@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,7 +19,16 @@ public class Order {
     @Id
     @GeneratedValue
     protected long id;
-    protected int datum;
+    protected LocalDate localDate;
     protected String kund;
     protected String varor;
+
+    
+
+
+    public Order(LocalDate localDate, String kund, String varor) {
+        this.localDate = localDate;
+        this.kund = kund;
+        this.varor = varor;
+    }
 }
