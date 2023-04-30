@@ -1,12 +1,12 @@
 package com.example.inlamningsuppgift.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,7 +17,14 @@ public class Order {
     @Id
     @GeneratedValue
     protected long id;
-    protected int datum;
+    protected LocalDate datum;
     protected String kund;
-    protected String varor;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    Costumer costumer;
+     protected String varor;
+
+
+
+
 }
