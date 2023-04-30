@@ -1,8 +1,6 @@
 package com.example.inlamningsuppgift.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +18,13 @@ public class Costumer {
     protected String name;
     protected long personnummer;
 
+
+
     public Costumer(String name, long personnummer) {
         this.name = name;
         this.personnummer = personnummer;
     }
+    @ManyToOne
+    @JoinColumn
+    private Order order;
 }

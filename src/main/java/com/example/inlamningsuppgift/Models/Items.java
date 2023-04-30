@@ -24,5 +24,6 @@ public class Items {
         this.name = name;
         this.pris = pris;
     }
+
 }
 
