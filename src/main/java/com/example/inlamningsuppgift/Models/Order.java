@@ -1,8 +1,6 @@
 package com.example.inlamningsuppgift.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +11,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "orders_table")
 @Entity
 public class Order {
 
@@ -20,15 +19,51 @@ public class Order {
     @GeneratedValue
     protected long id;
     protected LocalDate localDate;
-    protected String kund;
-    protected String varor;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Costumer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "items_id")
+    private Items item;
 
-    public Order(LocalDate localDate, String kund, String varor) {
+    public Order(LocalDate localDate, Costumer customer, Items item) {
         this.localDate = localDate;
-        this.kund = kund;
-        this.varor = varor;
+        this.customer = customer;
+        this.item = item;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
+
+    public Costumer getKund() {
+        return customer;
+    }
+
+    public void setKund(Costumer customer) {
+        this.customer = customer;
+    }
+
+    public Items getVaror() {
+        return item;
+    }
+
+    public void setVaror(Items item) {
+        this.item = item;
     }
 }

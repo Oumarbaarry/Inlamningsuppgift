@@ -3,10 +3,13 @@ package com.example.inlamningsuppgift.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
@@ -25,5 +28,7 @@ public class Items {
         this.pris = pris;
     }
 
+    @OneToMany(mappedBy = "item")
+    private List<Order> orders;
 }
 
