@@ -34,7 +34,7 @@ public class ItemController {
 
 
 
-
+//curl -X POST -H "Content-Type: application/json" -d '{"name":"Mjölk", "pris":15}'
     @PostMapping
     public ResponseEntity<Items> createItem(@RequestBody Items item) {
         Items savedItem = itemRepo.save(item);

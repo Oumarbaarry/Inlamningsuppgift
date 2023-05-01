@@ -36,6 +36,8 @@ public class OrderController {
         return customer.getOrders();
     }
 
+    //curl --header "Content-Type: application/json" \--request POST \ --data '{"customerId":1, "itemId":2}'
+
     @PostMapping("/buy")
     public ResponseEntity<String> buyItem(@RequestParam Long customerId, @RequestParam Long itemId) {
         Costumer customer = customerRepo.findById(customerId).orElseThrow();
