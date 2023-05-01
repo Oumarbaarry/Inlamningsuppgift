@@ -28,8 +28,8 @@ public class CostumerController {
         return customerRepo.findById(id).orElseThrow();
     }
 
-    @PostMapping("/add")
-    public Costumer addCustomer(@RequestBody Costumer newCustomer) {
+    @GetMapping("/add")
+    public Costumer addCustomer(@RequestParam Costumer newCustomer) {
         return customerRepo.save(newCustomer);
     }
 

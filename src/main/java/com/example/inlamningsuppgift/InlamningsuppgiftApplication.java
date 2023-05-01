@@ -1,9 +1,11 @@
 package com.example.inlamningsuppgift;
 
 import com.example.inlamningsuppgift.Models.Costumer;
+import com.example.inlamningsuppgift.Models.Items;
 import com.example.inlamningsuppgift.Models.Order;
 import com.example.inlamningsuppgift.Repository.CostumerRepo;
 //import com.example.inlamningsuppgift.Repository.ItemRepo;
+import com.example.inlamningsuppgift.Repository.ItemRepo;
 import com.example.inlamningsuppgift.Repository.OrderRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,7 +23,7 @@ public class InlamningsuppgiftApplication {
         SpringApplication.run(InlamningsuppgiftApplication.class, args);
     }
 
-        @Bean
+   /*     @Bean
         public CommandLineRunner runner(OrderRepo orderRepo, CostumerRepo costumerRepo){
             return(args)->{
                 List<Order> orders1 = new ArrayList<>();
@@ -53,6 +55,35 @@ public class InlamningsuppgiftApplication {
                 costumerRepo.save(customer2);
             };
 
-    }
-    }
+    }*/
+   /* @Bean
+   public CommandLineRunner runner(ItemRepo repoItem) {
+       return (args) -> {
+           Items item1 = new Items("Nike Sko",1000);
+           Items item2 = new Items("Golf klubba",1500);
+           Items item3 = new Items("Penna",10);
+           Items item4 = new Items("Stol",500);
+           Items item5 = new Items("Mobil",6000);
+           Items item6 = new Items("Säng",14000);
+           Items item7 = new Items("Nike tröja",200);
+           Items item8 = new Items("Levis Jeans",500);
+           Items item9 = new Items("Moncler Jacka",3000);
+           Items item10 = new Items("Stone Island",3000);
+
+           repoItem.save(item1);
+           repoItem.save(item2);
+           repoItem.save(item3);
+           repoItem.save(item4);
+           repoItem.save(item5);
+           repoItem.save(item6);
+           repoItem.save(item7);
+           repoItem.save(item8);
+           repoItem.save(item9);
+           repoItem.save(item10);
+
+
+
+       };
+   }*/
+   }
 
