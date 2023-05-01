@@ -28,7 +28,15 @@ public class CostumerController {
         return customerRepo.findById(id).orElseThrow();
     }
 
-   // curl -X POST -H "Content-Type: application/json" -d '{"name": "Kundens Namn", "personnummer": 1234567890}' http://localhost:8080/customers
+    @PostMapping("/add")
+    public Costumer addCustomer(@RequestBody Costumer newCustomer) {
+        return customerRepo.save(newCustomer);
+    }
+
+
+
+
+    // curl -X POST -H "Content-Type: application/json" -d '{"name": "Kundens Namn", "personnummer": 1234567890}' http://localhost:8080/customers
 
     @PostMapping
     public ResponseEntity<Costumer> createCustomer(@RequestBody Costumer customer) {

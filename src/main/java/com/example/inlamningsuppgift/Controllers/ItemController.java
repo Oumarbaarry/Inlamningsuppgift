@@ -27,6 +27,14 @@ public class ItemController {
         return itemRepo.findById(id).orElseThrow();
     }
 
+    @PostMapping("/add")
+    public Items addItem(@RequestBody Items newItem) {
+        return itemRepo.save(newItem);
+    }
+
+
+
+
     @PostMapping
     public ResponseEntity<Items> createItem(@RequestBody Items item) {
         Items savedItem = itemRepo.save(item);
