@@ -36,10 +36,10 @@ public class OrderController {
         return customer.getOrders();
     }
 
-    //curl --header "Content-Type: application/json" \--request POST \ --data '{"customerId":1, "itemId":2}'
-
+    //curl -X POST "http://localhost:8080/orders/buy?customerId=1&itemId=1"
     @PostMapping("/buy")
     public ResponseEntity<String> buyItem(@RequestParam Long customerId, @RequestParam Long itemId) {
+        System.out.println(customerId + " " + itemId);
         Costumer customer = customerRepo.findById(customerId).orElseThrow();
         Items item = itemRepo.findById(itemId).orElseThrow();
         Order order = new Order(LocalDate.now(), customer, item);

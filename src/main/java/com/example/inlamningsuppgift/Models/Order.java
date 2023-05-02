@@ -34,36 +34,4 @@ public class Order {
         this.item = item;
     }
 
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public LocalDate getLocalDate() {
-        return localDate;
-    }
-
-    public void setLocalDate(LocalDate localDate) {
-        this.localDate = localDate;
-    }
-
-    public Costumer getKund() {
-        return customer;
-    }
-
-    public void setKund(Costumer customer) {
-        this.customer = customer;
-    }
-
-    public Items getVaror() {
-        return item;
-    }
-
-    public void setVaror(Items item) {
-        this.item = item;
-    }
 }
