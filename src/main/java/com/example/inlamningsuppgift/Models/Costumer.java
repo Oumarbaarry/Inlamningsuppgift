@@ -1,4 +1,6 @@
 package com.example.inlamningsuppgift.Models;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -24,7 +26,7 @@ public class Costumer {
         this.name = name;
         this.personnummer = personnummer;
     }
-
-    @OneToMany(mappedBy = "customer")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> orders;
 }

@@ -1,5 +1,6 @@
 package com.example.inlamningsuppgift.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,9 @@ public class Order {
     protected long id;
     protected LocalDate localDate;
 
+
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "customer_id")
     private Costumer customer;
 

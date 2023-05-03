@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping()
 public class CostumerController {
     private final CostumerRepo customerRepo;
 
@@ -18,21 +19,20 @@ public class CostumerController {
         this.customerRepo = customerRepo;
     }
 
-    @GetMapping
+    @GetMapping("/customers")
     public List<Costumer> getAllCustomers() {
         return customerRepo.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Costumer getCustomerById(@PathVariable Long id) {
-        return customerRepo.findById(id).orElseThrow();
+    @GetMapping("/customers/{id}")
+    public ResponseEntity<Costumer> getCustomerById(@PathVariable Long id) {
+        Optional<Costumer> customer = customerRepo.findById(id);
+        if (customer.isPresent()) {
+            return ResponseEntity.ok(customer.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
-
-    @GetMapping("/add")
-    public Costumer addCustomer(@RequestParam Costumer newCustomer) {
-        return customerRepo.save(newCustomer);
-    }
-
 
 
 

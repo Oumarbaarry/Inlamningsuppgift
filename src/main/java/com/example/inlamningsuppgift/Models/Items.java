@@ -1,5 +1,7 @@
 package com.example.inlamningsuppgift.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -28,6 +30,8 @@ public class Items {
         this.pris = pris;
     }
 
+
+    @JsonBackReference
     @OneToMany(mappedBy = "item")
     private List<Order> orders;
 }
