@@ -45,13 +45,14 @@ public class ItemController {
     }
 
 
-    //curl -X POST "http://localhost:8080/items/buy?name=John&personnummer=9201012202&itemId=10"
+    //curl -X POST "http://localhost:8080/items/buy?customerId=1&itemId=1"
     @PostMapping("/buy")
-    public ResponseEntity<String> buyItem(@RequestParam String name, @RequestParam Long personnummer, @RequestParam Long itemId) {
-        System.out.println(name + " " + personnummer + " " + itemId);
-        Costumer customer = customerRepo.save(new Costumer(name, personnummer));
+    public ResponseEntity<String> buyItem(@RequestParam Long customerId, @RequestParam Long itemId) {
+        System.out.println(customerId + " " + itemId);
+        Costumer customer = customerRepo.findById(customerId).orElseThrow();
         Items item = itemRepo.findById(itemId).orElseThrow();
-        Order order = orderRepo.save(new Order(LocalDate.now(), customer, item));
+        Order order = new Order(LocalDate.now(), customer, item);
+        orderRepo.save(order);
         return ResponseEntity.ok("Purchase completed successfully");
     }
 }

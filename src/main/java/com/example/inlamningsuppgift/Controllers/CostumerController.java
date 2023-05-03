@@ -38,9 +38,9 @@ public class CostumerController {
 
     // curl -X POST -H "Content-Type: application/json" -d '{"name": "Kundens Namn", "personnummer": 1234567890}' http://localhost:8080/customers
 
-    @PostMapping
+    @PostMapping("/customers")
     public ResponseEntity<Costumer> createCustomer(@RequestBody Costumer customer) {
         Costumer savedCustomer = customerRepo.save(customer);
-        return ResponseEntity.created(URI.create("/customers/" + savedCustomer.getId())).body(savedCustomer);
+        return ResponseEntity.created(URI.create("/customers" + savedCustomer.getId())).body(savedCustomer);
     }
 }
